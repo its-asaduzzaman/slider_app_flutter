@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:slider_app_flutter/misc/colors.dart';
 import 'package:slider_app_flutter/widgets/app_large_text.dart';
+import 'package:slider_app_flutter/widgets/app_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -41,14 +42,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(
-            height: 40.0,
+            height: 20.0,
           ),
           Container(
             margin: const EdgeInsets.only(left: 20.0),
             child: AppLargeText(text: 'Discover'),
           ),
           const SizedBox(
-            height: 40.0,
+            height: 20.0,
           ),
           Container(
             child: Align(
@@ -104,6 +105,63 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 Text('Bye'),
               ],
             ),
+          ),
+          SizedBox(
+            height: 30.0,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppLargeText(
+                  text: 'Explore More',
+                  size: 22.0,
+                ),
+                AppText(
+                  text: 'See all',
+                  color: AppColors.textColor1,
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Container(
+            height: 100,
+            width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20.0),
+            child: ListView.builder(
+                itemCount: 6,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (_, index) {
+                  return Container(
+                    margin: const EdgeInsets.only(right: 30),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 80,
+                          width: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: DecorationImage(
+                              image: AssetImage("img/mountain.jpeg"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: AppText(
+                            text: 'sam',
+                            color: AppColors.textColor2,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
           ),
         ],
       ),
