@@ -11,6 +11,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  var images = {
+    "balloning.png": "Balloning",
+    "hiking.png": "Hiking",
+    "kayaking.png": "Kayaking",
+    "snorkling.png": "Snorkling"
+  };
+  var place = ['1', '2', '3'];
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -42,14 +50,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(
-            height: 20.0,
+            height: 15.0,
           ),
           Container(
             margin: const EdgeInsets.only(left: 20.0),
             child: AppLargeText(text: 'Discover'),
           ),
           const SizedBox(
-            height: 20.0,
+            height: 15.0,
           ),
           Container(
             child: Align(
@@ -94,7 +102,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white,
                         image: DecorationImage(
-                          image: AssetImage("img/mountain.jpeg"),
+                          image:
+                              AssetImage("img/place" + place[index] + ".png"),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -129,11 +138,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             height: 10.0,
           ),
           Container(
-            height: 100,
+            height: 120,
             width: double.maxFinite,
             margin: const EdgeInsets.only(left: 20.0),
             child: ListView.builder(
-                itemCount: 6,
+                itemCount: images.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, index) {
                   return Container(
@@ -147,14 +156,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
                             image: DecorationImage(
-                              image: AssetImage("img/mountain.jpeg"),
+                              image: AssetImage(
+                                  "img/" + images.keys.elementAt(index)),
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
+                        const SizedBox(
+                          height: 5.0,
+                        ),
                         Container(
                           child: AppText(
-                            text: 'sam',
+                            text: images.values.elementAt(index),
                             color: AppColors.textColor2,
                           ),
                         ),
