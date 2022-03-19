@@ -43,6 +43,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   width: 50.0,
                   height: 50.0,
                   decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        image: AssetImage('img/pro.png'),
+                      ),
                       borderRadius: BorderRadius.circular(10.0),
                       color: Colors.grey.withOpacity(0.5)),
                 ),
@@ -102,6 +105,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white,
                         image: DecorationImage(
+                          image: AssetImage(
+                              "img/place" + place[2 - index] + ".png"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                ListView.builder(
+                  itemCount: 3,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      margin: const EdgeInsets.only(right: 15.0, top: 10.0),
+                      height: 300,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        image: DecorationImage(
                           image:
                               AssetImage("img/place" + place[index] + ".png"),
                           fit: BoxFit.cover,
@@ -110,8 +133,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     );
                   },
                 ),
-                Text('There'),
-                Text('Bye'),
+                ListView.builder(
+                  itemCount: 3,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      margin: const EdgeInsets.only(right: 15.0, top: 10.0),
+                      height: 300,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        image: DecorationImage(
+                          image: AssetImage(
+                              "img/place" + place[2 - index] + ".png"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           ),
