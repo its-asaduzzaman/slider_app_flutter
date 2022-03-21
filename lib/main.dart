@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:slider_app_flutter/pages/navpages/home_page.dart';
+import 'package:slider_app_flutter/pages/detail_page.dart';
+import 'package:slider_app_flutter/pages/home_page.dart';
 import 'package:slider_app_flutter/pages/navpages/main_page.dart';
 import 'package:slider_app_flutter/pages/welcome_page.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  MainPage(),
+      home:  DetailPage(),
     );
   }
 }
