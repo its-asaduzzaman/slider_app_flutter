@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slider_app_flutter/misc/colors.dart';
+import 'package:slider_app_flutter/widgets/app_buttons.dart';
 import 'package:slider_app_flutter/widgets/app_large_text.dart';
 import 'package:slider_app_flutter/widgets/app_text.dart';
 
@@ -12,6 +13,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   int gottenStars = 3;
+  int selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -121,6 +123,47 @@ class _DetailPageState extends State<DetailPage> {
                           color: AppColors.textColor1,
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    AppLargeText(
+                      text: 'People',
+                      color: Colors.black.withOpacity(0.8),
+                      size: 20.0,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    AppText(
+                      text: 'Number of people in your group',
+                      color: AppColors.mainTextColor,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Wrap(
+                      children: List.generate(5, (index) {
+                        return InkWell(
+                          onTap: (){
+                            setState(() {
+                              selectedIndex = index;
+                            });
+
+
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(right: 10.0),
+                            child: AppButtons(
+                              color: selectedIndex == index? Colors.white  : Colors.black,
+                              backgroundColor: selectedIndex == index? Colors.black :AppColors.buttonBackground,
+                              borderColor: selectedIndex == index? Colors.black: AppColors.buttonBackground,
+                              size: 50,
+                              text: (index+1).toString(),
+                            ),
+                          ),
+                        );
+                      }),
                     ),
                   ],
                 ),
