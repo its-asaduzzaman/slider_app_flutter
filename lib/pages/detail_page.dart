@@ -3,6 +3,7 @@ import 'package:slider_app_flutter/misc/colors.dart';
 import 'package:slider_app_flutter/widgets/app_buttons.dart';
 import 'package:slider_app_flutter/widgets/app_large_text.dart';
 import 'package:slider_app_flutter/widgets/app_text.dart';
+import 'package:slider_app_flutter/widgets/repossive_button.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -145,28 +146,72 @@ class _DetailPageState extends State<DetailPage> {
                     Wrap(
                       children: List.generate(5, (index) {
                         return InkWell(
-                          onTap: (){
+                          onTap: () {
                             setState(() {
                               selectedIndex = index;
                             });
-
-
                           },
                           child: Container(
                             margin: EdgeInsets.only(right: 10.0),
                             child: AppButtons(
-                              color: selectedIndex == index? Colors.white  : Colors.black,
-                              backgroundColor: selectedIndex == index? Colors.black :AppColors.buttonBackground,
-                              borderColor: selectedIndex == index? Colors.black: AppColors.buttonBackground,
+                              color: selectedIndex == index
+                                  ? Colors.white
+                                  : Colors.black,
+                              backgroundColor: selectedIndex == index
+                                  ? Colors.black
+                                  : AppColors.buttonBackground,
+                              borderColor: selectedIndex == index
+                                  ? Colors.black
+                                  : AppColors.buttonBackground,
                               size: 50,
-                              text: (index+1).toString(),
+                              text: (index + 1).toString(),
                             ),
                           ),
                         );
                       }),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    AppLargeText(
+                      text: 'Description',
+                      color: Colors.black.withOpacity(0.8),
+                      size: 20,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    AppText(
+                      text:
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
+                      size: 10.0,
+                      color: AppColors.mainTextColor,
+                    ),
                   ],
                 ),
+              ),
+            ),
+            Positioned(
+              bottom: 20,
+              left: 20,
+              right: 20,
+              child: Row(
+                children: [
+                  AppButtons(
+                    color: AppColors.textColor1,
+                    backgroundColor: Colors.white,
+                    borderColor: AppColors.textColor1,
+                    size: 50,
+                    isIcon: true,
+                    icon: Icons.favorite_border,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  ResponsiveButtons(
+                    isResponsive: true,
+                  ),
+                ],
               ),
             ),
           ],
