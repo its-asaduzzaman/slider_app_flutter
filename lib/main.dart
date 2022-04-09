@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:slider_app_flutter/cubit/app_cubits.dart';
 import 'package:slider_app_flutter/pages/detail_page.dart';
 import 'package:slider_app_flutter/pages/home_page.dart';
 import 'package:slider_app_flutter/pages/navpages/main_page.dart';
@@ -20,7 +22,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  DetailPage(),
+      home: BlocProvider<AppCubits>(
+        create: (context) {
+          return AppCubits();
+        },
+        child: ,
+      ),
     );
   }
 }
