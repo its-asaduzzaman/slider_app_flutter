@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:slider_app_flutter/cubit/app_cubits.dart';
 import 'package:slider_app_flutter/misc/colors.dart';
 import 'package:slider_app_flutter/widgets/app_large_text.dart';
 import 'package:slider_app_flutter/widgets/app_text.dart';
@@ -64,8 +66,18 @@ class _WelcomePageState extends State<WelcomePage> {
                         const SizedBox(
                           height: 40.0,
                         ),
-                        ResponsiveButtons(
-                          width: 120.0,
+                        GestureDetector(
+                          onTap: () {
+                            BlocProvider.of<AppCubits>(context).getData();
+                          },
+                          child: Container(
+                            width: 200,
+                            child: Row(children: [
+                              ResponsiveButtons(
+                                width: 120.0,
+                              ),
+                            ]),
+                          ),
                         ),
                       ],
                     ),

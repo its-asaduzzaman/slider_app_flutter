@@ -5,6 +5,7 @@ import 'package:slider_app_flutter/cubit/app_cubits.dart';
 import 'package:slider_app_flutter/pages/detail_page.dart';
 import 'package:slider_app_flutter/pages/home_page.dart';
 import 'package:slider_app_flutter/pages/navpages/main_page.dart';
+import 'package:slider_app_flutter/pages/services/data_services.dart';
 import 'package:slider_app_flutter/pages/welcome_page.dart';
 
 void main() {
@@ -25,7 +26,9 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider<AppCubits>(
         create: (context) {
-          return AppCubits();
+          return AppCubits(
+            data: DataServices(),
+          );
         },
         child: AppCubitLogics(),
       ),
